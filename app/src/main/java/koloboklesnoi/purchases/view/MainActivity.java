@@ -75,8 +75,7 @@ public class MainActivity extends AppCompatActivity implements MvpView {
         AppDatabase purchase = Room.databaseBuilder(this, AppDatabase.class, "purchase").build();
         AppDatabase receipt = Room.databaseBuilder(this, AppDatabase.class, "receipt").build();
         presenter = new Presenter(this, purchase, receipt);
-        presenter.getPurchaseList();
-        presenter.getReceiptList();
+
     }
 
     @Override
@@ -133,5 +132,7 @@ public class MainActivity extends AppCompatActivity implements MvpView {
     protected void onResume() {
         super.onResume();
         // добавить обновление
+        presenter.getPurchaseList();
+        presenter.getReceiptList();
     }
 }
